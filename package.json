@@ -4,18 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "npx webpack --watch"
+    "test": "jest",
+    "watch": "npx webpack --watch",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.23.3",
+    "@types/jest": "^29.5.10",
     "css-loader": "^6.8.1",
     "eslint": "^8.54.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jest": "^27.6.0",
     "html-webpack-plugin": "^5.5.3",
+    "jest": "^29.7.0",
     "prettier": "3.1.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
