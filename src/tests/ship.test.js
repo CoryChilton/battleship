@@ -12,6 +12,12 @@ test('Ship instantiation vertical', () => {
   expect(ship1.hits).toBe(0);
 });
 
+test('Ship instantiation backwards', () => {
+  const ship1 = new Ship(5, 0, 0, 0);
+  expect(ship1.length).toBe(5);
+  expect(ship1.hits).toBe(0);
+});
+
 test('Diagonal ship', () => {
   expect(() => {
     new Ship(1, 1, 2, 2);
