@@ -3,7 +3,7 @@ export default class Ship {
     if (xStart !== xEnd && yStart !== yEnd) {
       throw new RangeError('Invalid coordinates');
     }
-    this.length = Math.abs(xStart - xEnd) || Math.abs(yStart - yEnd);
+    this.length = (Math.abs(xStart - xEnd) || Math.abs(yStart - yEnd)) + 1;
     this.xStart = xStart;
     this.yStart = yStart;
     this.xEnd = xEnd;
@@ -17,5 +17,11 @@ export default class Ship {
 
   isSunk() {
     return this.hits >= this.length;
+  }
+
+  isOnShip(x, y) {
+    return (
+      x >= this.xStart && x <= this.xEnd && y >= this.yStart && y <= this.yEnd
+    );
   }
 }

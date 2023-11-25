@@ -2,19 +2,19 @@ import Ship from '../modules/ship';
 
 test('Ship instantiation horizontal', () => {
   const ship1 = new Ship(0, 0, 5, 0);
-  expect(ship1.length).toBe(5);
+  expect(ship1.length).toBe(6);
   expect(ship1.hits).toBe(0);
 });
 
 test('Ship instantiation vertical', () => {
   const ship1 = new Ship(0, 0, 0, 5);
-  expect(ship1.length).toBe(5);
+  expect(ship1.length).toBe(6);
   expect(ship1.hits).toBe(0);
 });
 
 test('Ship instantiation backwards', () => {
   const ship1 = new Ship(5, 0, 0, 0);
-  expect(ship1.length).toBe(5);
+  expect(ship1.length).toBe(6);
   expect(ship1.hits).toBe(0);
 });
 
@@ -50,7 +50,7 @@ test('isSunk with too few hits', () => {
 });
 
 test('isSunk with exact number of hits', () => {
-  const ship5 = new Ship(0, 0, 2, 0);
+  const ship5 = new Ship(0, 0, 1, 0);
   ship5.hit();
   ship5.hit();
   expect(ship5.isSunk()).toBe(true);
@@ -62,4 +62,19 @@ test('isSunk with more hits than necessary', () => {
   ship5.hit();
   ship5.hit();
   expect(ship5.isSunk()).toBe(true);
+});
+
+test('isOnShip when it is on edge', () => {
+  const ship = new Ship(0, 0, 3, 0);
+  expect(ship.isOnShip(0, 0)).toBe(true);
+});
+
+test('isOnShip when it is in the middle', () => {
+  const ship = new Ship(0, 0, 3, 0);
+  expect(ship.isOnShip(1, 0)).toBe(true);
+});
+
+test('isOnShip when it is off', () => {
+  const ship = new Ship(0, 0, 3, 0);
+  expect(ship.isOnShip(1, 1)).toBe(false);
 });
