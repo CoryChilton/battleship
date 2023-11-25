@@ -71,3 +71,13 @@ test('allSunk with multiple hits to the same place', () => {
   gameboard1.receiveAttack(0, 0);
   expect(gameboard1.allSunk()).toBe(false);
 });
+
+test('allSunk with multiple ships', () => {
+  const gameboard1 = new Gameboard(5, 5);
+  gameboard1.placeShip(0, 0, 1, 0);
+  gameboard1.placeShip(1, 1, 1, 1);
+  gameboard1.receiveAttack(0, 0);
+  gameboard1.receiveAttack(1, 0);
+  gameboard1.receiveAttack(1, 1);
+  expect(gameboard1.allSunk()).toBe(true);
+});
