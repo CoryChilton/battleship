@@ -36,4 +36,26 @@ describe('ComputerPlayer', () => {
     const player = new ComputerPlayer(gameboard);
     expect(player.takeTurn(mockFunc)).toBe(false);
   });
+
+  test('generateNextCoord with no attacks', () => {
+    const gameboard = new Gameboard(5, 5);
+    const player = new ComputerPlayer(gameboard);
+    expect(player.generateNextCoord()).toEqual([0, 0]);
+  });
+
+  test('generateNextCoord with attacks', () => {
+    const gameboard = new Gameboard(5, 5);
+    const player = new ComputerPlayer(gameboard);
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(1, 0);
+    expect(player.generateNextCoord()).toEqual([2, 0]);
+  });
+
+  test('generateNextCoord with full row', () => {
+    const gameboard = new Gameboard(2, 2);
+    const player = new ComputerPlayer(gameboard);
+    gameboard.receiveAttack(0, 0);
+    gameboard.receiveAttack(1, 0);
+    expect(player.generateNextCoord()).toEqual([0, 1]);
+  });
 });
