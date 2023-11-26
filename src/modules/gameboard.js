@@ -31,10 +31,11 @@ export default class Gameboard {
       if (ship.isOnShip(x, y)) {
         ship.hit();
         this.hits.add(`${x},${y}`);
-        return;
+        return true;
       }
     }
     this.misses.add(`${x},${y}`);
+    return false;
   }
 
   allSunk() {
