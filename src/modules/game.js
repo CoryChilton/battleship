@@ -24,5 +24,5 @@ export default function createGame() {
     return 0;
   };
 
-  return { playRound };
+  return { playRound, GAMEBOARD_HEIGHT, GAMEBOARD_WIDTH };
 }

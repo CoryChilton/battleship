@@ -86,3 +86,35 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+#player-1 {
+  background-color: lightblue;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#player-2 {
+  background-color: lightcoral;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-auto-rows: 50px;
+  justify-content: center;
+}
+
+.board > div {
+  background-color: black;
+  border: 1px solid white;
+}
