@@ -118,3 +118,19 @@ main {
   background-color: black;
   border: 1px solid white;
 }
+
+.board > div.ship-cell {
+  background-color: blue;
+}
+
+.board > div.ship-cell.hit-cell {
+  background-color: green;
+}
+
+.board > div.miss-cell {
+  background-color: red;
+}
+
+.miss-cell {
+  background-color: white;
+}

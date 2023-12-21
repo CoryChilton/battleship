@@ -81,3 +81,13 @@ test('allSunk with multiple ships', () => {
   gameboard1.receiveAttack(1, 1);
   expect(gameboard1.allSunk()).toBe(true);
 });
+
+test('placeShip and check shipsCoords', () => {
+  const gameboard1 = new Gameboard(5, 5);
+  gameboard1.placeShip(0, 0, 1, 0);
+  gameboard1.placeShip(1, 1, 1, 1);
+  expect(gameboard1.shipsCoords.has('0,1')).toBe(false);
+  expect(gameboard1.shipsCoords.has('0,0')).toBe(true);
+  expect(gameboard1.shipsCoords.has('1,0')).toBe(true);
+  expect(gameboard1.shipsCoords.has('1,1')).toBe(true);
+});

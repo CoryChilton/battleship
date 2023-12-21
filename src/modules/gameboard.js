@@ -7,6 +7,7 @@ export default class Gameboard {
     this.ships = [];
     this.hits = new Set();
     this.misses = new Set();
+    this.shipsCoords = new Set();
     this.totalShipLength = 0;
   }
 
@@ -20,6 +21,12 @@ export default class Gameboard {
       throw new RangeError('Coordinates out of bounds.');
     }
     this.ships.push(new Ship(xStart, yStart, xEnd, yEnd));
+    for (let x = xStart; x <= xEnd; x++) {
+      for (let y = yStart; y <= yEnd; y++) {
+        this.shipsCoords.add(`${x},${y}`);
+      }
+    }
+
     this.totalShipLength += this.ships[this.ships.length - 1].length;
   }
 

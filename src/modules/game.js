@@ -24,5 +24,13 @@ export default function createGame() {
     return 0;
   };
 
-  return { playRound, GAMEBOARD_HEIGHT, GAMEBOARD_WIDTH };
+  return {
+    playRound,
+    GAMEBOARD_HEIGHT,
+    GAMEBOARD_WIDTH,
+    gameboard2,
+    gameboard1,
+    player1,
+    player2,
+  };
 }
